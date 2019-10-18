@@ -28,7 +28,10 @@ export class BuildingFormComponent implements OnInit {
   }
 
   send() {
-    this.backendService.sendImage(this.file);
+    this.backendService.sendImage(this.file)
+      .subscribe(() => {
+        console.log('file was sent');
+      });
   }
 
 }
