@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from 'src/app/services/backend.service';
 
 @Component({
   selector: 'app-building-form',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuildingFormComponent implements OnInit {
   imageSrc: string;
+  file: any;
 
-  constructor() { }
+  constructor(private backendService: BackendService) { }
 
   ngOnInit() {
 
@@ -16,17 +18,17 @@ export class BuildingFormComponent implements OnInit {
 
   readUrl(event) {
     if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
+      this.file = event.target.files[0];
 
       const reader = new FileReader();
       reader.onload = (e: any) => this.imageSrc = e.target.result;
 
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(this.file);
     }
   }
 
   send() {
-    
+    this.backendService.sendImage(this.file);
   }
 
 }

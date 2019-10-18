@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BackendService {
 
-  url = '';
+  url = 'https://example.com';
 
   constructor(private http: HttpClient) { }
 
