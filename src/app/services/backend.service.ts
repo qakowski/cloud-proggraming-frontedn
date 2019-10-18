@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BackendService {
 
-  url = 'https://example.com';
+  url = 'https://cloudprogrammingproject.azurewebsites.net/api/Images';
 
   constructor(private http: HttpClient) { }
 
